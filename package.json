@@ -1,5 +1,5 @@
 {
-  "name": "linkshare",
+  "name": "FaceRecognitionProject",
   "version": "0.0.0",
   "main": "server.js",
   "dependencies": {
