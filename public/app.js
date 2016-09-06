@@ -1,5 +1,5 @@
 (function() {
-    angular.module("facialRecognitionApp", [])
+    angular.module("faceRecognitionApp", [])
         .config = config;
 
     config.$inject = ['$locationProvider'];
