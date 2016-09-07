@@ -22,6 +22,12 @@
                 templateUrl: 'partials/login.html',
                 controller: 'loginController',
                 controllerAs: 'vm'
+            })
+            .state('signup', {
+                url: '/signup',
+                templateUrl: 'partials/signup.html',
+                controller: 'signupController',
+                controllerAs: 'vm'
             });
     }
 })();
