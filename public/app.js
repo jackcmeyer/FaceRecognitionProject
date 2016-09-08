@@ -28,6 +28,18 @@
                 templateUrl: 'partials/signup.html',
                 controller: 'signupController',
                 controllerAs: 'vm'
+            })
+            .state('manageclass', {
+                url:'/manageclass',
+                templateUrl: 'partials/manageclass.html',
+                controller: 'manageclassController',
+                controllerAs: 'vm'
+            })
+            .state('addstudent', {
+                url: '/addstudent',
+                templateUrl: 'partials/addstudent.html',
+                controller: 'addstudentController',
+                controllerAs: 'vm'
             });
     }
 })();
