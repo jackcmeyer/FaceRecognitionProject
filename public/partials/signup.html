@@ -1,16 +1,23 @@
 <div class="container">
     <h1>Sign Up</h1>
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="username"/>
-        <input type="password" class="form-control" placeholder="password"/>
-        <input type="password" class="form-control" placeholder="confirm password"/>
-    </div>
 
-    <div class="row">
-        <button type="button" class="btn btn-primary">Signup</button>
+    <form novalidate>
+        <input type="text" class="form-control" placeholder="username" ng-model="vm.username"/>
+        <span class="label label-danger" ng-if="vm.usernameError">{{vm.usernameError}}</span>
+        <input type="password" class="form-control" placeholder="password" ng-model="vm.password"/>
+        <span class="label label-danger" ng-if="vm.passwordError">{{vm.passwordError}}</span>
+        <input type="password" class="form-control" placeholder="confirm password" ng-model="vm.confirmPassword"/>
+        <span class="label label-danger" ng-if="vm.confirmPasswordError">{{vm.confirmPasswordError}}</span>
 
-        <a ui-sref="login"><button type="button" class="btn btn-danger">Cancel</button></a>
-    </div>
+        <br>
+        <br ng-if="vm.usernameError || vm.passwordError || vm.confirmPasswordError">
+
+        <div class="row">
+            <button type="submit" class="btn btn-primary" ng-click="vm.submitForm()">Signup</button>
+            <a ui-sref="login"><button type="button" class="btn btn-danger">Cancel</button></a>
+        </div>
+    </form>
+
     <div class="row">
         <p>Already have an account? Click <a ui-sref="login">here</a> to login.</p>
     </div>
