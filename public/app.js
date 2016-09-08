@@ -40,6 +40,18 @@
                 templateUrl: 'partials/addstudent.html',
                 controller: 'addstudentController',
                 controllerAs: 'vm'
+            })
+            .state('addclass', {
+                url: '/addclass',
+                templateUrl: 'partials/addclass.html',
+                controller: 'addclassController',
+                controllerAs: 'vm'
+            })
+            .state('takephoto', {
+                url: '/takephoto',
+                templateUrl: 'partials/takephoto.html',
+                controller: 'takephotoController',
+                controllerAs: 'vm'
             });
     }
 })();
