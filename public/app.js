@@ -20,13 +20,13 @@
             .state('login', {
                 url: '/login',
                 templateUrl: 'partials/login.html',
-                controller: 'loginController',
+                controller: 'AuthController',
                 controllerAs: 'vm'
             })
-            .state('signup', {
-                url: '/signup',
-                templateUrl: 'partials/signup.html',
-                controller: 'signupController',
+            .state('register', {
+                url: '/register',
+                templateUrl: 'partials/register.html',
+                controller: 'AuthController',
                 controllerAs: 'vm'
             })
             .state('manageclass', {
