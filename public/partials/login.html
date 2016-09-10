@@ -11,16 +11,20 @@
         <h3>Log In</h3>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Username" ng-model="vm.user.username">
-            <span class="label label-danger" ng-if="vm.usernameError">{{vm.usernameError}}</span>
+        </div>
+        <div ng-if="vm.usernameError" class="alert alert-danger">
+            <span>{{vm.usernameError}}</span>
         </div>
         <div class="form-group">
             <input type="password" class="form-control" placeholder="Password" ng-model="vm.user.password">
-            <span class="label label-danger" ng-if="vm.passwordError">{{vm.passwordError}}</span>
+        </div>
+        <div ng-if="vm.passwordError" class="alert alert-danger">
+            <span>{{vm.passwordError}}</span>
         </div>
         <button type="submit" class="btn btn-primary">Log In</button>
     </form>
 
-    <div class="row">
+    <div style="padding-top: 10px">
         <p>Don't have an account? Click <a ui-sref="register">here</a> to create a new account.</p>
     </div>
 

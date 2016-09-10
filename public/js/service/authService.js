@@ -5,9 +5,9 @@
         .module('faceRecognitionApp')
         .factory('AuthService', AuthService);
 
-    AuthService.$inject = ['$window', '$http'];
+    AuthService.$inject = ['$window', '$http', '$q'];
 
-    function AuthService($window, $http) {
+    function AuthService($window, $http, $q) {
         return {
             saveToken: saveToken,
             getToken: getToken,
