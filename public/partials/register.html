@@ -2,7 +2,7 @@
     <h1>Facemash</h1>
 </div>
 
-<div ng-show="error" class="alert alert-danger row">
+<div ng-show="vm.error.message" class="alert alert-danger row">
     <span>{{ vm.error.message }}</span>
 </div>
 
@@ -10,15 +10,21 @@
     <h3>Register</h3>
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Username" ng-model="vm.user.username">
-        <span class="label label-danger" ng-if="vm.usernameError">{{vm.usernameError}}</span>
+    </div>
+    <div ng-if="vm.usernameError" class="alert alert-danger">
+        <span>{{vm.usernameError}}</span>
     </div>
     <div class="form-group">
         <input type="password" class="form-control" placeholder="Password" ng-model="vm.user.password">
-        <span class="label label-danger" ng-if="vm.passwordError">{{vm.passwordError}}</span>
+    </div>
+    <div ng-if="vm.passwordError" class="alert alert-danger">
+        <span>{{vm.passwordError}}</span>
     </div>
     <div class="form-group">
         <input type="password" class="form-control" placeholder="Confirm Password" ng-model="vm.confirmPassword">
-        <span class="label label-danger" ng-if="vm.confirmPasswordError">{{vm.confirmPasswordError}}</span>
+    </div>
+    <div ng-if="vm.confirmPasswordError" class="alert alert-danger">
+        <span>{{vm.confirmPasswordError}}</span>
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
