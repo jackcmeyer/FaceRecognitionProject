@@ -8,7 +8,7 @@
 
     function config($stateProvider, $urlRouterProvider) {
         // For any unmatched url, redirect to /state1
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/login');
 
         $stateProvider
             .state('home', {
@@ -20,13 +20,13 @@
             .state('login', {
                 url: '/login',
                 templateUrl: 'partials/login.html',
-                controller: 'loginController',
+                controller: 'AuthController',
                 controllerAs: 'vm'
             })
-            .state('signup', {
-                url: '/signup',
-                templateUrl: 'partials/signup.html',
-                controller: 'signupController',
+            .state('register', {
+                url: '/register',
+                templateUrl: 'partials/register.html',
+                controller: 'AuthController',
                 controllerAs: 'vm'
             })
             .state('manageclass', {
