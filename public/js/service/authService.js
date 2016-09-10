@@ -2,9 +2,7 @@
     'use strict';
 
     angular
-        .module('faceRecognitionApp', [
-
-        ])
+        .module('faceRecognitionApp')
         .factory('AuthService', AuthService);
 
     AuthService.$inject = ['$window', '$http'];
@@ -69,7 +67,7 @@
         function login(user) {
             return $http({
                 method: 'POST',
-                url: '/api/register',
+                url: '/api/login',
                 data: user
             })
                 .then(success)

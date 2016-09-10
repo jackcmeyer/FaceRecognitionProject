@@ -8,7 +8,7 @@
 
     function config($stateProvider, $urlRouterProvider) {
         // For any unmatched url, redirect to /state1
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/login');
 
         $stateProvider
             .state('home', {

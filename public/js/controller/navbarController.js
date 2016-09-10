@@ -2,8 +2,7 @@
     'use strict';
 
     angular
-        .module('faceRecognitionApp', [
-        ])
+        .module('faceRecognitionApp')
         .controller('NavbarController', NavbarController);
 
     NavbarController.$inject = ['AuthService', '$location'];

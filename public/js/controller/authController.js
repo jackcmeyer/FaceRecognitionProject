@@ -2,8 +2,7 @@
     'use strict';
 
     angular
-        .module('faceRecognitionApp', [
-        ])
+        .module('faceRecognitionApp')
         .controller('AuthController', AuthController);
 
     AuthController.$inject = ['AuthService', '$location'];
@@ -33,6 +32,8 @@
             if(vm.user.password != vm.confirmPassword) vm.confirmPasswordError = 'Passwords do not match';
             if(vm.usernameError || vm.passwordError || vm.confirmPasswordError) return;
 
+            console.log(vm.usernameError, vm.passwordError, vm.confirmPasswordError);
+
             return AuthService.register(vm.user)
                 .then(function() {
                     $location.path('/home');
@@ -44,7 +45,10 @@
         }
 
         function login() {
-            console.log(vm.user);
+            if(vm.user.username == '') vm.usernameError = 'Username cannot be empty';
+            if(vm.user.password == '') vm.passwordError = 'Password cannot be empty';
+            if(vm.usernameError || vm.passwordError) return;
+
             return AuthService.login(vm.user)
                 .then(function() {
                     $location.path('/home');

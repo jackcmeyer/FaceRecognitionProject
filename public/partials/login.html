@@ -1,9 +1,9 @@
-<div class="container">
+
     <div class="page-header">
         <h1>Facemash</h1>
     </div>
 
-    <div ng-show="error" class="alert alert-danger row">
+    <div ng-show="vm.error.message" class="alert alert-danger row">
         <span>{{vm.error.message}}</span>
     </div>
 
@@ -23,4 +23,4 @@
     <div class="row">
         <p>Don't have an account? Click <a ui-sref="register">here</a> to create a new account.</p>
     </div>
-</div>
+
