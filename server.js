@@ -13,6 +13,7 @@ var app = express();
 
 var db = require('./config/db');
 require('./app/model/User');
+require('./app/model/Class')
 require('./config/passport');
 
 // set our port

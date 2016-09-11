@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var passport = require('passport');
 var User = mongoose.model('User');
+var Class = mongoose.model('Class');
 var jwt = require('express-jwt');
 
 var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
@@ -26,7 +27,7 @@ router.post('/api/register', function(req, res, next){
             return next(err);
         }
         console.log('In register');
-        return res.json({token: user.generateJWT()})
+        return res.json({token: user.generateJWT()});
     });
 });
 
@@ -46,6 +47,22 @@ router.post('/api/login', function(req, res, next){
     })(req, res, next);
 });
 
+router.post('/api/addclass', function(req, res, next) {
+    if(!req.body.username || !req.body.classname) {
+        return res.status(400).json({message: 'Please fill out all fields'});
+    }
+
+    var addclass = new Class();
+    addclass.username = req.body.username;
+    addclass.classname = req.body.classname; 
+
+    addclass.save(function(err) {
+        if(err) {
+            return next(err);
+        }
+
+        return res.status(200).json({message: 'success'});
+    });
+});
+
 module.exports = router;
-
-
