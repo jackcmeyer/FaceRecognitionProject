@@ -32,7 +32,8 @@
 
                 addClass(vm.class);
                 console.log(vm)
-}
+            }
+        }
 
         function addClass(addclass) {
             return $http({
@@ -44,7 +45,7 @@
                 .catch(fail);
 
             function success(data) {
-                $location.path('/home');
+                $location.path('/login');
                 return data;
             }
 
@@ -53,7 +54,4 @@
             }
         }
     }
-}
-
-
 })();

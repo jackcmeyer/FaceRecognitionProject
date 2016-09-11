@@ -54,7 +54,7 @@ router.post('/api/addclass', function(req, res, next) {
 
     var addclass = new Class();
     addclass.username = req.body.username;
-    addclass.classname = req.body.classname; 
+    addclass.classname = req.body.classname;
 
     addclass.save(function(err) {
         if(err) {
@@ -62,6 +62,20 @@ router.post('/api/addclass', function(req, res, next) {
         }
 
         return res.status(200).json({message: 'success'});
+    });
+});
+
+router.post('/api/getclasses', function(req, res, next) {
+    if(!req.body.username) {
+        return res.status(400).json({message: 'Please fill out all fields'});
+    }
+
+    Class.find({username: req.body.username}, function(err, results) {
+        if(err) {
+            return res.status(401).json({message: err});
+        }
+
+        return res.json(results);
     });
 });
 
