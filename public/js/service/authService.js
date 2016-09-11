@@ -40,7 +40,6 @@
         function currentUser() {
             if(isLoggedIn()){
                 var token = getToken();
-                console.log('In current user auth service' + token);
                 var payload = JSON.parse($window.atob(token.split('.')[1]));
                 return payload.username;
             }
