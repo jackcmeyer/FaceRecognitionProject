@@ -1,23 +1,18 @@
-<div class="container">
+<div class="page-header">
     <h1>Home</h1>
-
-    <div class="row">
-        <a ui-sref="addclass"><button class="btn btn-primary">Add Class</button></a>
-    </div>
-
-
-<div class="col-lg-8">
-    <div class="row">
-        <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Your Classes</div>
-                <ul class="list-group">
-                    <button class="list-group-item" ng-repeat="class in vm.classes">
-                        <span ng-bind="class.classname" ></span>
-                    </button>
-                </ul>
-            </div>
-    </div>
 </div>
 
+<a ui-sref="addclass"><button class="btn btn-primary">Add Class</button></a>
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Your Classes</div>
+    <ul class="list-group">
+        <button class="list-group-item" ng-repeat="class in vm.classes">
+            <span ng-bind="class.classname" ></span>
+        </button>
+    </ul>
 </div>
+
+
+

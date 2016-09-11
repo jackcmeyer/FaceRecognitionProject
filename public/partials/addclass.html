@@ -1,13 +1,14 @@
-<div class="container">
-    <h1>Add Class</h1>
-
-    <form novalidate>
-        <input type="text" class="form-control" placeholder="class name" ng-model="vm.classname"/>
-        <span class="label label-danger" ng-if="vm.classnameError">{{vm.classnameError}}</span>
-    </form>
-    <br />
-    <div class="row">
-        <button class="btn btn-primary" ng-click="vm.submitForm()">Add Class</button>
-        <a ui-sref="home"><button class="btn btn-danger">Cancel</button></a>
-    </div>
+<div class="page-header">
+    <h1>Home</h1>
 </div>
+
+<form novalidate>
+    <input type="text" class="form-control" placeholder="class name" ng-model="vm.classname"/>
+    <span class="label label-danger" ng-if="vm.classnameError">{{vm.classnameError}}</span>
+</form>
+<br />
+
+<button class="btn btn-primary" ng-click="vm.submitForm()">Add Class</button>
+<a ui-sref="home"><button class="btn btn-danger">Cancel</button></a>
+
+
