@@ -32,8 +32,6 @@
             if(vm.user.password != vm.confirmPassword) vm.confirmPasswordError = 'Passwords do not match';
             if(vm.usernameError || vm.passwordError || vm.confirmPasswordError) return;
 
-            console.log(vm.usernameError, vm.passwordError, vm.confirmPasswordError);
-
             return AuthService.register(vm.user)
                 .then(function() {
                     $location.path('/home');

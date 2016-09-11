@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module("faceRecognitionApp", ['ui.router'])
+    angular.module("faceRecognitionApp", ['ui.router', 'ngResource'])
         .config(config);
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];

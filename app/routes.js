@@ -14,6 +14,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/api/register', function(req, res, next){
+    console.log(req);
     if(!req.body.username || !req.body.password){
         return res.status(400).json({message: 'Please fill out all fields'});
     }
@@ -24,6 +25,7 @@ router.post('/api/register', function(req, res, next){
         if(err){
             return next(err);
         }
+        console.log('In register');
         return res.json({token: user.generateJWT()})
     });
 });

@@ -5,9 +5,9 @@
         .module('faceRecognitionApp')
         .factory('AuthService', AuthService);
 
-    AuthService.$inject = ['$window', '$http', '$q'];
+    AuthService.$inject = ['$window', '$resource', '$q'];
 
-    function AuthService($window, $http, $q) {
+    function AuthService($window, $resource, $q) {
         return {
             saveToken: saveToken,
             getToken: getToken,
@@ -47,11 +47,11 @@
         }
 
         function register(user) {
-            return $http({
-                method: 'POST',
-                url: '/api/register',
-                data: user
-            })
+            return $resource('/api/register', {}, {
+                execute: {
+                    method: 'POST'
+                }
+            }).execute(user).$promise
                 .then(success)
                 .catch(fail);
 
@@ -65,13 +65,14 @@
         }
 
         function login(user) {
-            return $http({
-                method: 'POST',
-                url: '/api/login',
-                data: user
-            })
+            return $resource('/api/login', {}, {
+                execute: {
+                    method: 'POST'
+                }
+            }).execute(user).$promise
                 .then(success)
                 .catch(fail);
+
 
             function success(data) {
                 console.log('In auth service login' + data);
