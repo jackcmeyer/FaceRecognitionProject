@@ -91,6 +91,8 @@ router.post('/api/addstudent', function (req, res, next) {
     student.studentGraduatingClass = req.body.studentGraduatingClass;
     student.studentPicture = req.body.studentPicture;
 
+    // Student.getAllStudents();
+
     student.save(function(err) {
         if(err) {
             return next(err);
@@ -101,6 +103,10 @@ router.post('/api/addstudent', function (req, res, next) {
 });
 
 router.post('/api/getstudent', function (req, res, next) {
+
+});
+
+router.post('/api/getAllStudents', function(req, res, next) {
 
 });
 

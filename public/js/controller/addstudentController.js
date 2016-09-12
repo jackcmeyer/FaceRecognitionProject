@@ -54,8 +54,7 @@
 
             return studentService.addStudent(student)
                 .then(function(data) {
-                    console.log("Controller data: " + data);
-                    alert(data);
+                    console.log(data);
                 });
         }
     }

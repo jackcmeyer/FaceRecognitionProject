@@ -11,6 +11,7 @@
         return {
             addStudent: addStudent,
             getStudent: getStudent,
+            getAllStudents: getAllStudents,
             updateStudent: updateStudent,
             removeStudent: removeStudent
         };
@@ -21,16 +22,19 @@
                 .catch(fail);
             
             function success(response) {
-                console.log("Service data: " + response.data);
-                alert(response.data);
+                return response.data;
             }
             
             function fail(error) {
-                console.log("Service error " + error);
+                console.log(error);
             }
         }
 
         function getStudent(student) {
+
+        }
+
+        function getAllStudents() {
 
         }
 
