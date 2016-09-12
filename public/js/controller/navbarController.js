@@ -19,6 +19,7 @@
         }
 
         function logout() {
+            console.log("Logout")
             AuthService.logout();
             $location.path('/login');
         }
