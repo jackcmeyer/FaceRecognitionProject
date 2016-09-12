@@ -14,16 +14,15 @@
         <input type="text" class="form-control" placeholder="Student Graduating Class" ng-model="vm.studentGraduatingClass" />
         <span class="label label-danger" ng-if="vm.studentGraduatingClassError">{{vm.studentGraduatingClassError}}</span>
 
-        <input type="file" placeholder="Upload Student Photo" ng-model="vm.studentPicture"/>
+        <!--<input type="file" placeholder="Upload Student Photo" ng-model="vm.studentPicture"/>-->
+        <input type="text" class="form-control" placeholder="Image URL" ng-model="vm.studentPicture"/>
         <span class="label label-danger" ng-if="vm.studentPictureError">{{vm.studentPictureError}}</span>
 
+        <br />
 
+        <div class="row">
+            <button type="submit" class="btn btn-primary" ng-click="vm.submitForm()">Add Student</button>
+            <a ui-sref="manageclass"><button class="btn btn-danger">Cancel</button></a>
+        </div>
     </form>
-
-    <br />
-
-    <div class="row">
-        <button class="btn btn-primary" ng-click="vm.submitForm()">Add Student</button>
-        <a ui-sref="manageclass"><button class="btn btn-danger">Cancel</button></a>
-    </div>
 </div>

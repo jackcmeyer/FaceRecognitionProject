@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
 
-
 var StudentSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    picUrl: String
+    studentName: String,
+    studentHomeTown: String,
+    studentMajor: String,
+    studentGraduatingClass: String,
+    studentPicture: String
 });
 
 mongoose.model('Student', StudentSchema);
