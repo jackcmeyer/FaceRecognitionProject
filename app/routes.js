@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 var passport = require('passport');
 var User = mongoose.model('User');
+var Student = mongoose.model('Student');
 var Class = mongoose.model('Class');
 var jwt = require('express-jwt');
 
@@ -77,6 +78,44 @@ router.post('/api/getclasses', function(req, res, next) {
 
         return res.json(results);
     });
+});
+
+router.post('/api/addstudent', function (req, res, next) {
+    if(!req.body.studentName || !req.body.studentHomeTown || !req.body.studentMajor || !req.body.studentGraduatingClass || !req.body.studentPicture)
+        return res.status(400).json({message: 'Please fill out all fields'});
+
+    var student = new Student();
+    student.studentName = req.body.studentName;
+    student.studentHomeTown = req.body.studentHomeTown;
+    student.studentMajor = req.body.studentMajor;
+    student.studentGraduatingClass = req.body.studentGraduatingClass;
+    student.studentPicture = req.body.studentPicture;
+
+    // Student.getAllStudents();
+
+    student.save(function(err) {
+        if(err) {
+            return next(err);
+        }
+
+        return res.status(201).json({message: 'student created'});
+    });
+});
+
+router.post('/api/getstudent', function (req, res, next) {
+
+});
+
+router.post('/api/getAllStudents', function(req, res, next) {
+
+});
+
+router.post('/api/updatestudent', function (req, res, next) {
+
+});
+
+router.post('/api/removestudent', function (req, res, next) {
+
 });
 
 module.exports = router;
