@@ -48,7 +48,7 @@ router.post('/api/login', function(req, res, next){
     })(req, res, next);
 });
 
-router.post('/api/addclass', function(req, res, next) {
+router.post('/api/addclass', auth, function(req, res, next) {
     if(!req.body.username || !req.body.classname) {
         return res.status(400).json({message: 'Please fill out all fields'});
     }
@@ -66,12 +66,12 @@ router.post('/api/addclass', function(req, res, next) {
     });
 });
 
-router.post('/api/getclasses', function(req, res, next) {
-    if(!req.body.username) {
+router.get('/api/getclasses', function(req, res, next) {
+    if(!req.query.username) {
         return res.status(400).json({message: 'Please fill out all fields'});
     }
 
-    Class.find({username: req.body.username}, function(err, results) {
+    Class.find({username: req.query.username}, function(err, results) {
         if(err) {
             return res.status(401).json({message: err});
         }
@@ -80,7 +80,7 @@ router.post('/api/getclasses', function(req, res, next) {
     });
 });
 
-router.post('/api/addstudent', function (req, res, next) {
+router.post('/api/addstudent', auth, function (req, res, next) {
     if(!req.body.studentName || !req.body.studentHomeTown || !req.body.studentMajor || !req.body.studentGraduatingClass || !req.body.studentPicture)
         return res.status(400).json({message: 'Please fill out all fields'});
 

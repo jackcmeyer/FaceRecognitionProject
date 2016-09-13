@@ -4,22 +4,18 @@
     angular.module("faceRecognitionApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ['AuthService', '$location', '$http'];
+    homeController.$inject = ['AuthService', 'HomeService', '$q'];
 
 
-    function homeController(AuthService, $location, $http) {
+    function homeController(AuthService, HomeService, $q) {
         var vm = this;
-        vm.classes = "";
+        vm.classes = {};
 
         var user = AuthService.currentUser();
         getAllClasses();
 
         function getAllClasses() {
-            return $http({
-                method: 'POST',
-                url: '/api/getclasses',
-                data: {username: user}
-            })
+            return HomeService.getAllClasses(user)
                 .then(success)
                 .catch(fail);
 
@@ -33,7 +29,5 @@
                 return $q.reject(error);
             }
         }
-
     }
-
 })();

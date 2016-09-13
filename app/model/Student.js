@@ -5,7 +5,8 @@ var StudentSchema = new mongoose.Schema({
     studentHomeTown: String,
     studentMajor: String,
     studentGraduatingClass: String,
-    studentPicture: String
+    studentPicture: String,
+    studentClass: { type: mongoose.Schema.Types.ObjectId, ref: 'Class' }
 });
 
 mongoose.model('Student', StudentSchema);
