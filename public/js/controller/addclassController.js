@@ -45,7 +45,7 @@
                 .catch(fail);
 
             function success(data) {
-                $location.path('/login');
+                $location.path('/home');
                 return data;
             }
 
