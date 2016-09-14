@@ -102,6 +102,10 @@ router.post('/api/addstudent', function (req, res, next) {
     });
 });
 
+router.post('/api/compareimage', function(req, res, next) {
+    console.log("I'M A FUCKING GEE");
+});
+
 router.post('/api/getstudent', function (req, res, next) {
 
 });
