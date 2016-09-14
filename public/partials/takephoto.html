@@ -3,11 +3,19 @@
 
 <script language="JavaScript">
     Webcam.attach( '#my_camera' );
+    var data;
 
     function take_snapshot() {
         Webcam.snap( function(data_uri) {
+            data = data_uri;
             document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
+
+            Webcam.upload(data, "http://localhost:8080/api/compareimage", function() {
+                console.log("Hello World");
+            });
         } );
+
+
     }
 </script>
 

@@ -123,6 +123,10 @@ router.post('/api/addstudent/:class', function (req, res, next) {
     });
 });
 
+router.post('/api/compareimage', function(req, res, next) {
+    console.log("I'M A FUCKING GEE");
+});
+
 router.get('/api/getClass/:class', function(req, res) {
     if(!req.class)
         return res.status(400).json({message: 'Class does not exist'});
