@@ -30,13 +30,13 @@
                 controllerAs: 'vm'
             })
             .state('manageclass', {
-                url:'/manageclass',
+                url:'/manageclass/:class',
                 templateUrl: 'partials/manageclass.html',
                 controller: 'manageclassController',
                 controllerAs: 'vm'
             })
             .state('addstudent', {
-                url: '/addstudent',
+                url: '/addstudent/:class',
                 templateUrl: 'partials/addstudent.html',
                 controller: 'addstudentController',
                 controllerAs: 'vm'

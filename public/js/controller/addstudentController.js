@@ -4,9 +4,9 @@
     angular.module("faceRecognitionApp")
         .controller("addstudentController", addstudentController);
 
-    addstudentController.$inject = ['studentService'];
+    addstudentController.$inject = ['studentService' ,'$stateParams'];
 
-    function addstudentController(studentService) {
+    function addstudentController(studentService, $stateParams) {
         var vm = this;
         vm.studentName = "";
         vm.studentHomeTown = "";
@@ -52,7 +52,7 @@
                 studentPicture: vm.studentPicture
             };
 
-            return studentService.addStudent(student)
+            return studentService.addStudent(student, $stateParams.class)
                 .then(function(data) {
                     console.log(data);
                 });

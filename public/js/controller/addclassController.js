@@ -4,9 +4,9 @@
     angular.module("faceRecognitionApp")
         .controller("addclassController", addclassController);
 
-    addclassController.$inject = ['AuthService', '$location', '$http'];
+    addclassController.$inject = ['AuthService', '$location', '$http', '$q'];
 
-    function addclassController(AuthService, $location, $http) {
+    function addclassController(AuthService, $location, $http, $q) {
         var vm = this;
 
         vm.class = {};

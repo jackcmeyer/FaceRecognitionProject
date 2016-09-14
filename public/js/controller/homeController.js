@@ -4,10 +4,10 @@
     angular.module("faceRecognitionApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ['AuthService', 'HomeService', '$q'];
+    homeController.$inject = ['AuthService', 'HomeService', '$q', '$location'];
 
 
-    function homeController(AuthService, HomeService, $q) {
+    function homeController(AuthService, HomeService, $q, $location) {
         var vm = this;
         vm.classes = {};
 

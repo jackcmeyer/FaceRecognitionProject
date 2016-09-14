@@ -8,11 +8,26 @@ var Student = mongoose.model('Student');
 var Class = mongoose.model('Class');
 var jwt = require('express-jwt');
 
-var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
+// var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
 // return homepage for angular front end
 router.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
+});
+
+router.param('class', function(req, res, next, id) {
+    var query = Class.findById(id);
+
+    query.exec(function (err, Class){
+        if (err) {
+            return next(err);
+        }
+        if (!Class) {
+            return next(new Error('Class does not exist'));
+        }
+        req.class = Class;
+        return next();
+    });
 });
 
 router.post('/api/register', function(req, res, next){
@@ -80,7 +95,7 @@ router.get('/api/getclasses', function(req, res, next) {
     });
 });
 
-router.post('/api/addstudent', function (req, res, next) {
+router.post('/api/addstudent/:class', function (req, res, next) {
     if(!req.body.studentName || !req.body.studentHomeTown || !req.body.studentMajor || !req.body.studentGraduatingClass || !req.body.studentPicture)
         return res.status(400).json({message: 'Please fill out all fields'});
 
@@ -90,6 +105,7 @@ router.post('/api/addstudent', function (req, res, next) {
     student.studentMajor = req.body.studentMajor;
     student.studentGraduatingClass = req.body.studentGraduatingClass;
     student.studentPicture = req.body.studentPicture;
+    student.studentClass = req.class;
 
     // Student.getAllStudents();
 
@@ -97,25 +113,43 @@ router.post('/api/addstudent', function (req, res, next) {
         if(err) {
             return next(err);
         }
-
-        return res.status(201).json({message: 'student created'});
+        req.class.students.push(student);
+        req.class.save(function(err) {
+            if(err) {
+                return next(err);
+            }
+            return res.status(201).json({message: 'student created'});
+        });
     });
 });
 
-router.post('/api/getstudent', function (req, res, next) {
+router.get('/api/getClass/:class', function(req, res) {
+    if(!req.class)
+        return res.status(400).json({message: 'Class does not exist'});
 
+    req.class.populate('students', function(err, Class) {
+        if (err) {
+            return next(err);
+        }
+        console.log(Class);
+        res.json(Class);
+    });
 });
 
-router.post('/api/getAllStudents', function(req, res, next) {
-
-});
-
-router.post('/api/updatestudent', function (req, res, next) {
-
-});
-
-router.post('/api/removestudent', function (req, res, next) {
-
-});
+// router.post('/api/getstudent', function (req, res, next) {
+//
+// });
+//
+// router.post('/api/getAllStudents', function(req, res, next) {
+//
+// });
+//
+// router.post('/api/updatestudent', function (req, res, next) {
+//
+// });
+//
+// router.post('/api/removestudent', function (req, res, next) {
+//
+// });
 
 module.exports = router;

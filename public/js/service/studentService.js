@@ -16,8 +16,8 @@
             removeStudent: removeStudent
         };
 
-        function addStudent(student) {
-            return $http.post("/api/addstudent", student)
+        function addStudent(student, id) {
+            return $http.post("/api/addstudent/" + id, student)
                 .then(success)
                 .catch(fail);
             

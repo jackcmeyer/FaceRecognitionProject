@@ -1,7 +1,14 @@
-<div class="container">
+<div class="page-header">
     <h1>Manage Class</h1>
-    <div class="row">
-        <a ui-sref="takephoto"><button class="btn btn-primary">Take Picture</button></a>
-        <a ui-sref="addstudent"><button class="btn btn-primary">Add Student</button></a>
-    </div>
 </div>
+
+<a ui-sref="takephoto"><button class="btn btn-primary">Take Picture</button></a>
+<a ui-sref="addstudent({class: vm.classId})"><button class="btn btn-primary">Add Student</button></a>
+
+<ul class="list-group">
+    <div class="list-group-item" ng-repeat="student in vm.class.students">
+        <span ng-bind="student.studentName"></span>
+    </div>
+</ul>
+
+

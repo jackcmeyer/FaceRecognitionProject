@@ -8,9 +8,9 @@
     <!-- Default panel contents -->
     <div class="panel-heading">Your Classes</div>
     <ul class="list-group">
-        <button class="list-group-item" ng-repeat="class in vm.classes">
-            <span ng-bind="class.classname" ></span>
-        </button>
+        <a class="list-group-item" ng-repeat="class in vm.classes" ui-sref="manageclass({class: class._id})">
+            <span ng-bind="class.classname"></span>
+        </a>
     </ul>
 </div>
 
