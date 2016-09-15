@@ -8,15 +8,12 @@
 
     function addstudentController(studentService, $stateParams, $location) {
         var vm = this;
-
         vm.classid = $stateParams.class;
-
         vm.studentName = "";
         vm.studentHomeTown = "";
         vm.studentMajor = "";
         vm.studentGraduatingClass = "";
         vm.studentPicture = "";
-
         vm.studentNameError = "";
         vm.studentHomeTownError = "";
         vm.studentMajorError = "";
