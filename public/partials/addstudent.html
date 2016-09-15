@@ -3,24 +3,28 @@
 </div>
 
 <form novalidate>
-    <input type="text" class="form-control" placeholder="Student Name" ng-model="vm.studentName"/>
-    <span class="label label-danger" ng-if="vm.studentNameError">{{vm.studentNameError}}</span>
-
-    <input type="text" class="form-control" placeholder="Student Hometown" ng-model="vm.studentHomeTown"/>
-    <span class="label label-danger" ng-if="vm.studentHomeTownError">{{vm.studentHomeTownError}}</span>
-
-    <input type="text" class="form-control" placeholder="Student Major" ng-model="vm.studentMajor"/>
-    <span class="label label-danger" ng-if="vm.studentMajorError">{{vm.studentMajorError}}</span>
-
-    <input type="text" class="form-control" placeholder="Student Graduating Class" ng-model="vm.studentGraduatingClass" />
-    <span class="label label-danger" ng-if="vm.studentGraduatingClassError">{{vm.studentGraduatingClassError}}</span>
-
-    <!--<input type="file" placeholder="Upload Student Photo" ng-model="vm.studentPicture"/>-->
-    <input type="text" class="form-control" placeholder="Image URL" ng-model="vm.studentPicture"/>
-    <span class="label label-danger" ng-if="vm.studentPictureError">{{vm.studentPictureError}}</span>
-
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Student Name" ng-model="vm.studentName"/>
+        <span class="label label-danger" ng-if="vm.studentNameError">{{vm.studentNameError}}</span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Student Hometown" ng-model="vm.studentHomeTown"/>
+        <span class="label label-danger" ng-if="vm.studentHomeTownError">{{vm.studentHomeTownError}}</span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Student Major" ng-model="vm.studentMajor"/>
+        <span class="label label-danger" ng-if="vm.studentMajorError">{{vm.studentMajorError}}</span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Student Graduating Class" ng-model="vm.studentGraduatingClass" />
+        <span class="label label-danger" ng-if="vm.studentGraduatingClassError">{{vm.studentGraduatingClassError}}</span>
+    </div>
+    <div class="form-group">
+        <!--<input type="text" class="form-control" placeholder="Image URL" ng-model="vm.studentPicture"/>-->
+        <input type="file" name="pic" accept="image/*" ng-model="vm.studentPicture">
+        <span class="label label-danger" ng-if="vm.studentPictureError">{{vm.studentPictureError}}</span>
+    </div>
     <br />
-
     <button type="submit" class="btn btn-primary" ng-click="vm.submitForm()">Add Student</button>
     <a ui-sref="manageclass"><button class="btn btn-danger">Cancel</button></a>
 

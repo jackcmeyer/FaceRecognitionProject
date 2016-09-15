@@ -52,6 +52,8 @@
                 studentPicture: vm.studentPicture
             };
 
+            console.log(student);
+
             return studentService.addStudent(student, $stateParams.class)
                 .then(function(data) {
                     console.log(data);

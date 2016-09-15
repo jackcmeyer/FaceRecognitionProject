@@ -140,20 +140,4 @@ router.get('/api/getClass/:class', function(req, res) {
     });
 });
 
-// router.post('/api/getstudent', function (req, res, next) {
-//
-// });
-//
-// router.post('/api/getAllStudents', function(req, res, next) {
-//
-// });
-//
-// router.post('/api/updatestudent', function (req, res, next) {
-//
-// });
-//
-// router.post('/api/removestudent', function (req, res, next) {
-//
-// });
-
 module.exports = router;
