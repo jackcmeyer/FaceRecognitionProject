@@ -7,6 +7,7 @@ var User = mongoose.model('User');
 var Student = mongoose.model('Student');
 var Class = mongoose.model('Class');
 var jwt = require('express-jwt');
+var cv = require('../node-opencv/lib/opencv');
 
 // var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
@@ -107,8 +108,6 @@ router.post('/api/addstudent/:class', function (req, res, next) {
     student.studentPicture = req.body.studentPicture;
     student.studentClass = req.class;
 
-    // Student.getAllStudents();
-
     student.save(function(err) {
         if(err) {
             return next(err);
@@ -121,6 +120,8 @@ router.post('/api/addstudent/:class', function (req, res, next) {
             return res.status(201).json({message: 'student created'});
         });
     });
+
+    student._id;
 });
 
 router.post('/api/compareimage', function(req, res, next) {
@@ -139,5 +140,33 @@ router.get('/api/getClass/:class', function(req, res) {
         res.json(Class);
     });
 });
+
+router.post('/api/getstudent', function (req, res, next) {
+
+});
+
+router.post('/api/circlefaces', function (req, res, next) {
+    cv.readImage("./download.jpg", function(err, im){
+        im.detectObject(cv.FACE_CASCADE, {}, function(err, faces){
+            for (var i=0;i<faces.length; i++) {
+                var x = faces[i];
+                im.ellipse(x.x + x.width/2, x.y + x.height/2, x.width/2, x.height/2);
+            }
+            im.save('./out.jpg');
+        });
+    })
+});
+
+// router.post('/api/getAllStudents', function(req, res, next) {
+//
+// });
+//
+// router.post('/api/updatestudent', function (req, res, next) {
+//
+// });
+//
+// router.post('/api/removestudent', function (req, res, next) {
+//
+// });
 
 module.exports = router;
