@@ -120,6 +120,8 @@ router.post('/api/addstudent/:class', function (req, res, next) {
             return res.status(201).json({message: 'student created'});
         });
     });
+
+    student._id;
 });
 
 router.post('/api/compareimage', function(req, res, next) {
@@ -140,6 +142,10 @@ router.get('/api/getClass/:class', function(req, res) {
 });
 
 router.post('/api/getstudent', function (req, res, next) {
+
+});
+
+router.post('/api/circlefaces', function (req, res, next) {
     cv.readImage("./download.jpg", function(err, im){
         im.detectObject(cv.FACE_CASCADE, {}, function(err, faces){
             for (var i=0;i<faces.length; i++) {
@@ -150,7 +156,7 @@ router.post('/api/getstudent', function (req, res, next) {
         });
     })
 });
-//
+
 // router.post('/api/getAllStudents', function(req, res, next) {
 //
 // });
