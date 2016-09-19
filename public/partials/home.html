@@ -14,5 +14,29 @@
     </ul>
 </div>
 
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Api facial functions</h3>
+    </div>
+    <div class="panel-body">
+        <button class="btn btn-primary" ng-click="vm.detectFaces()">Detect Faces</button>
+        <button class="btn btn-success" ng-click="vm.enroll()">Enroll Person</button>
+        <button class="btn btn-warning" ng-click="vm.recognize()">Recognize Person</button>
+    </div>
+</div>
 
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Api database</h3>
+    </div>
+    <div class="panel-body">
+        <button class="btn btn-info" ng-click="vm.listAllGalleries()">List All Galleries</button>
+        <br>
+        <span ng-repeat="gallery in vm.galleries">{{gallery}}</span>
 
+        <hr>
+        <button class="btn btn-info" ng-click="vm.listFacesInGallery()">List faces in gallery</button>
+        <br>
+        <span ng-repeat="face in vm.faces track by $index">{{face}}<br></span>
+    </div>
+</div>
