@@ -34,6 +34,7 @@
                 .catch(fail);
 
             function success(response) {
+                console.log(response);
                 return response.data;
             }
 

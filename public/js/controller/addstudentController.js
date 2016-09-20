@@ -59,7 +59,7 @@
                     //call enroll service
                     ClassService.getClass($stateParams.class)
                         .then(function(response) {
-                            faceService.enrollStudent(data.studentPicture, data._id, response.className)
+                            faceService.enrollStudent(data.studentPicture, data._id, response.classname)
                     })
                         .catch(function(err) {
                             console.log(err);
