@@ -49,7 +49,7 @@
                 controllerAs: 'vm'
             })
             .state('takephoto', {
-                url: '/takephoto',
+                url: '/takephoto/:class',
                 templateUrl: 'partials/takephoto.html',
                 controller: 'takephotoController',
                 controllerAs: 'vm'
