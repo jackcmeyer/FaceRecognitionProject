@@ -1,6 +1,3 @@
-<script type="text/javascript"
-        src="//api.filestackapi.com/filestack.js"></script>
-
 <div>
     <h2>Take an image to check to see who it is.</h2>
     <div id="my_camera" style="width:320px; height:240px;"></div>
@@ -14,6 +11,10 @@
     <button class="btn btn-primary" ng-click="vm.uploadImage()">Yes</button>
     <button class="btn btn-default" ng-click="vm.cancelUpload()">No</button>
 </div>
+
+<script type="text/javascript"
+        src="//api.filestackapi.com/filestack.js"></script>
+
 
 <input type="filepicker" data-fp-apikey="AiCMd0VpTQGmtYJqo6gGaz" onchange="angular.element(this).scope().vm.newPicture = event.fpfile.url" >
 
