@@ -144,13 +144,15 @@ router.get('/api/getClass/:class', function(req, res) {
 });
 
 router.post('/api/circlefaces', function (req, res, next) {
-    cv.readImage("./download.jpg", function(err, im){
+    cv.readImage("/home/tuffant21/Desktop/download.jpg", function(err, im){
         im.detectObject(cv.FACE_CASCADE, {}, function(err, faces){
             for (var i=0;i<faces.length; i++) {
                 var x = faces[i];
                 im.ellipse(x.x + x.width/2, x.y + x.height/2, x.width/2, x.height/2);
+                im.putText(req.body.names[i], x.x+x.width, x.y, 'FONT_HERSHEY_PLAIN', [246,255,79], 0.50, 2);
             }
-            im.save('./out.jpg');
+            im.save('/home/tuffant21/Desktop/out.jpg');
+            console.log("Done");
         });
     })
 });

@@ -9,6 +9,7 @@
     function faceService($http) {
 
         return {
+            detectAndCircleFaces: detectAndCircleFaces,
             enrollStudent: enrollStudent,
             removeStudent: removeStudent,
             recognizeStudent: recognizeStudent,
@@ -17,6 +18,26 @@
             listStudentsInGallery: listStudentsInGallery,
             removeGallery: removeGallery
         };
+
+        function detectAndCircleFaces(names) {
+            return $http({
+                method: 'POST',
+                url: '/api/circlefaces',
+                data: {
+                    names: names
+                }
+            })
+                .then(success)
+                .catch(fail);
+
+            function success(response) {
+                return response.data;
+            }
+
+            function fail(error) {
+                console.log(error);
+            }
+        }
 
         function enrollStudent(imageUrl, studentId, galleryName) {
             return $http({
@@ -35,7 +56,6 @@
                 .catch(fail);
 
             function success(response) {
-                console.log(response);
                 return response.data;
             }
 
@@ -91,6 +111,8 @@
 
         function pullFacesFromResponse(response) {
             var returnVal = [];
+
+            console.log(response);
 
             for (var i = 0; i < response.images.length; i++) {
                 var string = JSON.stringify(response.images[i].candidates[0]);

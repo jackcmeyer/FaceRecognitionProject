@@ -60,7 +60,7 @@
                     }
                 }
 
-                //DO STUFF WITH NAMES
+                faceService.detectAndCircleFaces(names);
             }
 
             function fail(data) {
