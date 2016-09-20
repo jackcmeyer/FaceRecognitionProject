@@ -127,7 +127,7 @@ router.post('/api/getstudent/:student_id', function (req, res, next) {
 });
 
 router.post('/api/compareimage', function(req, res, next) {
-    console.log("I'M A FUCKING GEE");
+
 });
 
 router.get('/api/getClass/:class', function(req, res) {
