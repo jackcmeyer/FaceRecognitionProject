@@ -7,7 +7,7 @@ var User = mongoose.model('User');
 var Student = mongoose.model('Student');
 var Class = mongoose.model('Class');
 var jwt = require('express-jwt');
-var cv = require('../node-opencv/lib/opencv');
+// var cv = require('../node-opencv/lib/opencv');
 
 // var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
@@ -117,7 +117,7 @@ router.post('/api/addstudent/:class', function (req, res, next) {
             if(err) {
                 return next(err);
             }
-            return res.status(201).json({message: 'student created'});
+            return res.status(201).json(student);
         });
     });
 });
