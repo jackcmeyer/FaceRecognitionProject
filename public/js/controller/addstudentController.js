@@ -4,9 +4,9 @@
     angular.module("faceRecognitionApp")
         .controller("addstudentController", addstudentController);
 
-    addstudentController.$inject = ['studentService' ,'$stateParams', '$location', 'faceService'];
+    addstudentController.$inject = ['studentService' ,'$stateParams', '$location', 'faceService', 'ClassService'];
 
-    function addstudentController(studentService, $stateParams, $location, faceService) {
+    function addstudentController(studentService, $stateParams, $location, faceService, ClassService) {
         var vm = this;
         vm.classid = $stateParams.class;
         vm.studentName = "";
@@ -57,7 +57,13 @@
                 .then(function(data) {
                     console.log(data);
                     //call enroll service
-                    // faceService.enrollStudent(data.url, data._id, );
+                    ClassService.getClass($stateParams.class)
+                        .then(function(response) {
+                            faceService.enrollStudent(data.studentPicture, data._id, response.className)
+                    })
+                        .catch(function(err) {
+                            console.log(err);
+                    });
                     $location.path("/manageclass/" + $stateParams.class)
                 });
         }
