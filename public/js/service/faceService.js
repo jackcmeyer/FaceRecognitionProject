@@ -12,6 +12,7 @@
             enrollStudent: enrollStudent,
             removeStudent: removeStudent,
             recognizeStudent: recognizeStudent,
+            pullFacesFromResponse: pullFacesFromResponse,
             listAllGalleries: listAllGalleries,
             listStudentsInGallery: listStudentsInGallery,
             removeGallery: removeGallery
@@ -86,6 +87,21 @@
             function fail(error) {
                 console.log(error);
             }
+        }
+
+        function pullFacesFromResponse(response) {
+            var returnVal = [];
+
+            for (var i = 0; i < response.images.length; i++) {
+                var string = JSON.stringify(response.images[i].candidates[0]);
+                var firstQuote = string.indexOf('"');
+                var secondQuote = string.indexOf('"', firstQuote + 1);
+                var result = string.slice(firstQuote + 1, secondQuote);
+
+                returnVal.push(result);
+            }
+
+            return returnVal;
         }
 
         function listAllGalleries() {

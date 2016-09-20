@@ -7,7 +7,7 @@ var User = mongoose.model('User');
 var Student = mongoose.model('Student');
 var Class = mongoose.model('Class');
 var jwt = require('express-jwt');
-// var cv = require('../node-opencv/lib/opencv');
+var cv = require('../node-opencv/lib/opencv');
 
 // var auth = jwt({secret: 'SECRET', userProperty: 'payload'});
 
@@ -122,8 +122,11 @@ router.post('/api/addstudent/:class', function (req, res, next) {
     });
 });
 
-router.post('/api/getstudent', function (req, res, next) {
-
+router.post('/api/getstudent/:student_id', function (req, res, next) {
+    var student = new Student()/;
+    student.find({
+        _id: student_id
+    })
 });
 
 router.post('/api/compareimage', function(req, res, next) {
