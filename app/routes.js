@@ -149,8 +149,13 @@ router.post('/api/circlefaces', function (req, res, next) {
             for (var i=0;i<faces.length; i++) {
                 var x = faces[i];
                 im.ellipse(x.x + x.width/2, x.y + x.height/2, x.width/2, x.height/2);
-                im.putText(req.body.names[i], x.x+x.width, x.y, 'FONT_HERSHEY_PLAIN', [246,255,79], 0.50, 2);
             }
+
+            im.putText("People Present: ", 20, 120, 'FONT_HERSHEY_PLAIN', [246,255,79], 0.50, 2);
+            for(var i = 0; i < req.body.names.length; i++) {
+                im.putText(req.body.names[i], 20, 140 + (20 * i), 'FONT_HERSHEY_PLAIN', [246,255,79], 0.50, 2);
+            }
+
             im.save('/home/tuffant21/Desktop/out.jpg');
             console.log("Done");
         });
