@@ -15,7 +15,6 @@ var db = require('./config/db');
 require('./app/model/User');
 require('./app/model/Class');
 require('./app/model/Student');
-require('./app/model/Img');
 require('./config/passport');
 
 // set our port

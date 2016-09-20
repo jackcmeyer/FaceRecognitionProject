@@ -9,6 +9,7 @@
 	<script src="./assets/angular/angular.min.js"></script>
 	<script src="./assets/angular-ui-router/angular-ui-router.min.js"></script>
 	<script src="./assets/angular-resource/angular-resource.min.js"></script>
+	<script src="./assets/angular-filepicker/angular-filepicker.js"></script>
 	<script src="./assets/twitterBootstrap/js/bootstrap.min.js"></script>
 
 	<script src="./app.js"></script>
@@ -46,13 +47,11 @@
 				<li ng-if="vm.isLoggedIn()" class="active"><a href="#">Home</a></li>
 				<li ng-if="vm.isLoggedIn()" ng-click="vm.logout()"><a href="#">Logout</a></li>
 			  </ul>
-			</div><!--/.nav-collapse -->
+			</div>
 	  </div>
 	</nav>
 </div>
-
 </br>
-
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<div ui-view></div>

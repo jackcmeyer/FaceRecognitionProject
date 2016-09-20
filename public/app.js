@@ -6,9 +6,10 @@
 
     config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-    function config($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider, filepickerProvider) {
         // For any unmatched url, redirect to /state1
         $urlRouterProvider.otherwise('/login');
+        // filepickerProvider.setKey('AiCMd0VpTQGmtYJqo6gGaz');
 
         $stateProvider
             .state('home', {
@@ -53,5 +54,7 @@
                 controller: 'takephotoController',
                 controllerAs: 'vm'
             });
+
+
     }
 })();

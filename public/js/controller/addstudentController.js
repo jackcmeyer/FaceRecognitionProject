@@ -22,7 +22,6 @@
 
         vm.submitForm = submitForm;
 
-
         function submitForm() {
             vm.studentNameError = vm.studentHomeTownError = vm.studentMajorError = vm.studentGraduatingClassError = "";
 
@@ -57,7 +56,7 @@
             return studentService.addStudent(student, $stateParams.class)
                 .then(function(data) {
                     console.log(data);
-
+                    //call enroll service
                     $location.path("/manageclass/" + $stateParams.class)
                 });
         }
