@@ -1,22 +1,17 @@
-<div id="my_camera" style="width:320px; height:240px;"></div>
-<div id="my_result"></div>
+<div>
+    <h2>Take an image to check to see who it is.</h2>
+    <div id="my_camera" style="width:320px; height:240px;"></div>
 
-<script language="JavaScript">
+    <button class="btn btn-primary" ng-click="vm.takeSnapshot()">Take Snapshot</button>
+</div>
+
+<div ng-if="vm.dataUri">
+    <h2>This is the image you took. Do you want to use this image?</h2>
+    <img src="{{vm.dataUri}}"><br>
+    <button class="btn btn-primary" ng-click="vm.uploadImage()">Yes</button>
+    <button class="btn btn-default" ng-click="vm.cancelUpload()">No</button>
+</div>
+
+<script>
     Webcam.attach( '#my_camera' );
-    var data;
-
-    function take_snapshot() {
-        Webcam.snap( function(data_uri) {
-            data = data_uri;
-            document.getElementById('my_result').innerHTML = '<img src="'+data_uri+'"/>';
-
-            Webcam.upload(data, "http://localhost:8080/api/compareimage", function() {
-                console.log("Hello World");
-            });
-        } );
-
-
-    }
 </script>
-
-<a href="javascript:void(take_snapshot())">Take Snapshot</a>
