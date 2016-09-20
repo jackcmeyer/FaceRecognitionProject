@@ -123,10 +123,7 @@ router.post('/api/addstudent/:class', function (req, res, next) {
 });
 
 router.post('/api/getstudent/:student_id', function (req, res, next) {
-    var student = new Student()/;
-    student.find({
-        _id: student_id
-    })
+
 });
 
 router.post('/api/compareimage', function(req, res, next) {
