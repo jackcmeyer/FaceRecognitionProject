@@ -120,8 +120,10 @@ router.post('/api/addstudent/:class', function (req, res, next) {
             return res.status(201).json({message: 'student created'});
         });
     });
+});
 
-    student._id;
+router.post('/api/getstudent', function (req, res, next) {
+
 });
 
 router.post('/api/compareimage', function(req, res, next) {
@@ -139,10 +141,6 @@ router.get('/api/getClass/:class', function(req, res) {
         console.log(Class);
         res.json(Class);
     });
-});
-
-router.post('/api/getstudent', function (req, res, next) {
-
 });
 
 router.post('/api/circlefaces', function (req, res, next) {
