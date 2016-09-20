@@ -1,4 +1,5 @@
 *.iml
 .idea/
 node_modules/
+node-opencv/
 opencv-**/
