@@ -8,7 +8,8 @@
 
     function takephotoController(faceService, $stateParams) {
         var vm = this;
-        vm.dataUri = "";
+        vm.dataUri = '';
+        vm.newPicture = '';
         vm.takeSnapshot = takeSnapshot;
         vm.uploadImage = uploadImage;
         vm.cancelUpload = cancelUpload;
@@ -20,7 +21,7 @@
         }
 
         function uploadImage() {
-            faceService.recognizeStudent(vm.dataUri, "TestGallery")
+            faceService.recognizeStudent(vm.newPicture, "TestGallery")
                 .then(success)
                 .catch(fail);
 
